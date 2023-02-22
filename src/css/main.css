@@ -1,5 +1,6 @@
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #q4Wrapper {
@@ -33,16 +34,23 @@
   text-align: center;
 }
 #q4Wrapper article img {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 #q4Wrapper a {
   display: inline-block;
   text-decoration: none;
   color: white;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
   transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 #q4Wrapper a:hover {
-  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
 }
 #q4Wrapper a span {
   opacity: 0.5;
@@ -60,5 +68,19 @@
 
 /* Begin styling the report items here! */
 .reports {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 30px 1fr 30px 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+@media only screen and (max-width:768px) {
+  .reports {
+    -ms-grid-columns: 1fr 30px 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
+.reports a img {
+  width: 100%;
 }
